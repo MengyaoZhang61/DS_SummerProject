@@ -98,7 +98,6 @@ if (!is.null(plot_n) && plot_n > 0 && plot_n < ncol(counts)) {
   counts_long_imp <- subset(counts_long_imp, key %in% keep_cols)
 }
 
-# ------------------ 画图 ------------------
 p_double <- ggplot(counts_long) +
   geom_line(aes(times, values, group = key), alpha = 0.12) +
   geom_line(data = counts_long_imp, aes(times, values, group = key), alpha = 0.12, colour = "blue") +
@@ -226,3 +225,4 @@ cat(sprintf("Prop importations vivax (single): %.2f%% [95 CI %.2f%% - %.2f%%]\n"
             mean(ratio, na.rm = TRUE) * 100,
             quantile(ratio, probs = 0.025, na.rm = TRUE) * 100,
             quantile(ratio, probs = 0.975, na.rm = TRUE) * 100))
+
