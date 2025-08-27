@@ -19,7 +19,6 @@ f_side_png  <- "figures/fig_side_by_side_single_vs_double.png"
 f_band_pdf  <- "figures/fig_import_band_single_vs_double.pdf"
 f_band_png  <- "figures/fig_import_band_single_vs_double.png"
 
-# ---------------------- real data ----------------------
 real_events      <- readRDS("data/pv_onset_2016.rds")
 real_event_times <- real_events$time
 T_max            <- max(real_event_times)
@@ -145,7 +144,7 @@ ggsave(f_side_pdf, final_side, width = 12, height = 5.8)
 ggsave(f_side_png, final_side, width = 12, height = 5.8, dpi = 300)
 
 
-# ---------------------- 3) 导入“均值+95%CI”：全部原始导入轨迹 + 带子 + 真实绿线 ----------------------
+# 导入“均值+95%CI”
 ymax_import <- max(
   real_counts_imported$counts,
   single$imported,
@@ -190,3 +189,4 @@ improvement_summary <- tibble::tibble(
 )
 
 print(improvement_summary)
+
